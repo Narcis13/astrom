@@ -1,4 +1,4 @@
-  <header class="header">
+  <header class="header" id="nav">
      <div class="container">
         <div class="header-main">
            <div class="logo">
@@ -86,7 +86,7 @@ a{
 	left:0;
 	top:0;
 	z-index: 99;
-	padding: 15px;
+	/*padding: 15px;*/
 }
 .header-main{
 	background-color: #ffffff;
@@ -276,7 +276,7 @@ a{
 		overflow-y: auto;
 		background-color: #222222;
 		z-index: 1000;
-		padding: 15px 0;
+	/*	padding: 15px 0;*/
 		transition: all 0.5s ease;
 	}
 	.header .nav-menu.open{
@@ -338,6 +338,24 @@ a{
 <script>
 (() =>{
  
+
+     var nav = document.getElementById('nav');
+
+       window.onscroll = function () {
+
+         if(window.pageYOffset > 30){
+
+          nav.style.position = "fixed";
+          nav.style.top = 0;
+
+          }else{
+            // nav.style.position = "absolute";
+            nav.style.position = 'relative'; //fixed
+            nav.style.top = 30;
+          }
+       }
+
+
   const openNavMenu = document.querySelector(".open-nav-menu"),
   closeNavMenu = document.querySelector(".close-nav-menu"),
   navMenu = document.querySelector(".nav-menu"),
